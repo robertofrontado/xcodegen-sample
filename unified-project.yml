@@ -1,0 +1,48 @@
+name: XcodeGenSample
+options:
+  bundleIdPrefix: com.frontado
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  XcodeGenSample:
+    type: application
+    platform: iOS
+    sources: 
+      - path: XcodeGenSample
+    dependencies:
+      - target: Authentication
+      - target: Profile
+    scheme:
+      testTargets:
+      - XcodeGenSampleTests
+  XcodeGenSampleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: XcodeGenSampleTests
+  Authentication:
+    type: framework
+    platform: iOS
+    sources: 
+      - path: Subprojects/Authentication
+    scheme:
+      testTargets:
+      - AuthenticationTests
+  AuthenticationTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Subprojects/AuthenticationTests
+  Profile:
+    type: framework
+    platform: iOS
+    sources: 
+      - path: Subprojects/Profile
+    scheme:
+      testTargets:
+      - ProfileTests
+  ProfileTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Subprojects/ProfileTests

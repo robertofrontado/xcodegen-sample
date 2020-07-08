@@ -1,0 +1,19 @@
+name: Authentication
+options:
+  bundleIdPrefix: com.frontado
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  Authentication:
+    type: framework
+    platform: iOS
+    sources: 
+      - path: ../Subprojects/Authentication
+    scheme:
+      testTargets:
+      - AuthenticationTests
+  AuthenticationTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ../Subprojects/AuthenticationTests

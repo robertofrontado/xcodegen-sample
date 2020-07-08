@@ -1,0 +1,19 @@
+name: Profile
+options:
+  bundleIdPrefix: com.frontado
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  Profile:
+    type: framework
+    platform: iOS
+    sources: 
+      - path: ../Subprojects/Profile
+    scheme:
+      testTargets:
+      - ProfileTests
+  ProfileTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: ../Subprojects/ProfileTests

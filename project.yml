@@ -1,0 +1,29 @@
+name: XcodeGenSample
+options:
+  bundleIdPrefix: com.frontado
+  deploymentTarget:
+    iOS: 13.0
+targets:
+  XcodeGenSample:
+    type: application
+    platform: iOS
+    sources: 
+      - path: XcodeGenSample
+    dependencies:
+      - target: Authentication
+      - target: Profile
+    scheme:
+      testTargets:
+      - XcodeGenSampleTests
+    preBuildScripts:
+      - name: SwiftLint
+        script: |
+                ${PODS_ROOT}/SwiftLint/swiftlint --config .swiftlint.yml
+  XcodeGenSampleTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: XcodeGenSampleTests
+include:
+  - path: Subspecs/authentication.yml
+  - path: Subspecs/profile.yml
